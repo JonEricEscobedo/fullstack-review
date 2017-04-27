@@ -3,12 +3,19 @@ mongoose.connect('mongodb://localhost/fetcher');
 
 var repoSchema = mongoose.Schema({
   // TODO: your schema here!
-  username: String, // owner.login
-  user_id: Number,  // id
-  repos: [{repo_id: Number, repo_snippet: String, repo_url: String}] // name, description, html_url
+  username: String,     // owner.login
+  user_id: Number,      // owner.id
+  repo_id: {
+    type: Number,       // id
+    unique: true
+  },                    
+  repo_name: String,    // name
+  repo_snippet: String, // description
+  repo_url: String,     // html_url
+  forks: Number         // forks
 });
 
-var Repo = mongoose.model('Repo', repoSchema);)
+var Repo = mongoose.model('Repo', repoSchema);
 
 module.exports = Repo;
 
