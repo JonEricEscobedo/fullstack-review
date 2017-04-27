@@ -17,7 +17,7 @@ app.post('/repos/import', function (req, res) {
     headers: {'user-agent': 'JonEricEscobedo'},
     json: true
   }, function(error, response, body) {
-    console.log(body)
+    // console.log(body)
 
 
     for (var i = 0; i < body.length; i++) {
@@ -49,7 +49,7 @@ app.post('/repos/import', function (req, res) {
       });
     }
 
-    console.log(`${length} ${username} ${userId} ${repoName} ${forks}`);
+    // console.log(`${length} ${username} ${userId} ${repoName} ${forks}`);
 
     // Temp data
     // var username = 'wakabarf';
