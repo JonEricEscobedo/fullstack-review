@@ -1,10 +1,10 @@
 import React from 'react';
 
 const RepoList = (props) => {
-  // var parsedProps = JSON.parse(props);
-  // console.log(props.repos)
-  var listItems = props.repos.map((repo) => {
-    return <ul>User: {repo.username}<li>Repo Name: {repo.repo_name}</li><li>Forks: {repo.forks}</li></ul>
+  var listItems = props.repos.map((repo, index) => {
+    if (index < 25) {
+      return <ul>#{index+1} {repo.username}<li>Repo Name: {repo.repo_name}</li><li>Forks: {repo.forks}</li></ul>  
+    }
   })
 
   console.log(listItems);
@@ -14,7 +14,7 @@ const RepoList = (props) => {
       <h4> Repo List Component </h4>
       There are {props.repos.length} repos.
       <div>
-        Here are the top 25 repos:
+        Here are the top 25 forked repos:
         {listItems}
       </div>
     </div>

@@ -5,12 +5,13 @@ var request = require('request');
 var Repo = require('../database');
 
 app.use(body.json());
+app.use(express.static('./'))
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/repos/import', function (req, res) {
   // TODO
   var username = req.body.username;
-  console.log('Inside POST in Express...');
+  // console.log('Inside POST in Express...');
 
   request({
     url: `https://api.github.com/users/${username}/repos`,
@@ -53,7 +54,7 @@ app.post('/repos/import', function (req, res) {
 });
 
 app.get('/repos', function (req, res) {
-  console.log('Inside GET in Express...');
+  // console.log('Inside GET in Express...');
   
   Repo.find({}, function(error, result) {
     return res.json(result);    

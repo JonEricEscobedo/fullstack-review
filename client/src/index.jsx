@@ -24,7 +24,7 @@ class App extends React.Component {
     })
     .done(function(data) {
       console.log('success', data);
-      // context.forceUpdate();
+      context.componentDidMount();
     })
     .fail(function(err) {
       console.log('There was an error!', err);
@@ -39,7 +39,7 @@ class App extends React.Component {
       url: '/repos'
     })
     .done(function(data) {
-      console.log('GET done... doing something...');
+      // console.log('GET done... doing something...');
       context.setState({repos: data});
     })
   }
